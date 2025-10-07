@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # G9 Energy Website
 
 Multi-page React site (Vite + Tailwind), red/white/black theme.  
@@ -20,3 +21,7 @@ Swap `public/assets/logo-placeholder.png` with your real logo file named `logo.p
 
 ## GA4 (optional)
 Add your GA4 snippet to `index.html` if needed.
+=======
+# G9-ENERGY
+Website G9 ENERGY
+>>>>>>> 3264dab7f564fcdead5bd30bff5c3e13454241a3
