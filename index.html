@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G9 Energy — Fuel & Lubricants Supply</title>
+    <meta name="description" content="Bulk fuel supply and distribution: Diesel, Petrol, Jet Fuel and Lubricants. Powering Africa's industries from Midrand, Johannesburg.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="G9 Energy — Fuel & Lubricants Supply" />
+    <meta property="og:description" content="Bulk Fuel Supply | Diesel, Petrol, Jet Fuel, Lubricants" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":["Organization","LocalBusiness"],
+      "name":"G9 Energy",
+      "url":"https://example.com/",
+      "email":"mailto:g9energysupply@gmail.com",
+      "telephone":"+27 63 733 3919",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Midrand",
+        "addressRegion":"Johannesburg",
+        "addressCountry":"ZA"
+      },
+      "slogan":"Powering Africa's Industries."
+    }
+    </script>
+
+    <!-- Netlify forms detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+  </head>
+  <body class="bg-white text-brand-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
