@@ -31,10 +31,15 @@ function Navbar() {
         <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/80 backdrop-blur">
             <Container className="flex items-center justify-between py-3">
                 <Link to="/" className="flex items-center gap-3">
-                    <img src="/assets/logo.png" alt="G9 Energy" className="h-10 w-auto" />
+                    <img
+                        src="/assets/logo.png"
+                        alt="G9 Energy"
+                        className="h-10 w-auto"
+                        onError={(e) => { e.currentTarget.src = '/favicon.svg' }}
+                    />
                     <div className="leading-tight">
                         <div className="text-xl font-extrabold tracking-tight">G9 ENERGY</div>
-                        <div className="text-[11px] uppercase tracking-wider text-zinc-500">Fuel &amp; Lubricants</div>
+                        <div className="text-[11px] uppercase tracking-wider text-zinc-500">Fuel & Lubricants</div>
                     </div>
                 </Link>
 
@@ -117,10 +122,10 @@ function Footer() {
                 </div>
                 <div className="space-y-2">
                     <div className="text-zinc-500 uppercase text-xs">Contact</div>
-                    <a href="tel:+27637333919" className="block hover:underline">CEO: Onthatile Matjeding — 063 733 3919</a>
-                    <a href="tel:+27629417835" className="block hover:underline">COO: Bokamoso Tshidada — 062 941 7835</a>
-                    <a href="tel:+27663300304" className="block hover:underline">CFO: Keorapetse Tlhapane — 066 330 0304</a>
+                    <div>Landline: <a className="hover:underline" href="tel:+27120040569">012 004 0569</a></div>
+                    <div>Sales: <a className="hover:underline" href="tel:+27763088254">076 308 8254</a></div>
                     <a href="mailto:g9energysupply@gmail.com" className="block hover:underline">g9energysupply@gmail.com</a>
+                    <a href="mailto:orders@enerygysupply.co.za" className="block hover:underline">orders@enerygysupply.co.za</a>
                 </div>
                 <div className="space-y-2">
                     <div className="text-zinc-500 uppercase text-xs">Quick links</div>
@@ -242,57 +247,115 @@ function Home() {
 function Team() {
     return (
         <main className="py-12">
-            <Container>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl font-bold tracking-tight">Leadership Team</h1>
+
                 <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <TeamCard name="Onthatile Matjeding" role="Chief Executive Officer" phone="063 733 3919" phoneHref="+27637333919" />
-                    <TeamCard name="Bokamoso Tshidada" role="Chief Operating Officer" phone="062 941 7835" phoneHref="+27629417835" />
-                    <TeamCard name="Keorapetse Tlhapane" role="Chief Financial Officer" phone="066 330 0304" phoneHref="+27663300304" />
+                    <TeamCard
+                        name="Bokamoso Tshidada"
+                        role="Chief Executive Officer"
+                        email="bk@energysupply.co.za"
+                    />
+                    <TeamCard
+                        name="Onthatile Matjeding"
+                        role="Chief Operating Officer"
+                        email="squets@energysupply.co.za"
+                    />
+                    <TeamCard
+                        name="Keorapetse Tlhapane"
+                        role="Chief Financial Officer"
+                        email="keo@energysupply.co.za"
+                    />
                 </div>
-            </Container>
+
+                <h2 className="mt-12 text-2xl font-bold tracking-tight">Sales Team</h2>
+                <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-6">
+                        <div className="font-semibold">Marc Jooste</div>
+                        <div className="text-sm text-zinc-600">Sales</div>
+                        <div className="mt-2 flex flex-col gap-1 text-sm">
+                            {/* NOTE: you typed enerygysupply.co.za — if that’s a typo, change to energysupply */}
+                            <a href="mailto:orders@enerygysupply.co.za" className="text-red-600 hover:underline">
+                                orders@enerygysupply.co.za
+                            </a>
+                            <a href="tel:+27763088254" className="hover:underline">076 308 8254</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     )
 }
 
-const TeamCard = ({ name, role, phone, phoneHref }) => {
-    const waNumber = (phoneHref || '').replace('+', '')
-    const waText = encodeURIComponent(`Hi ${name}, I'd like to discuss supply.`)
-    const waUrl = `https://wa.me/${waNumber}?text=${waText}`
-    return (
-        <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-6">
-            <div className="space-y-1">
-                <div className="font-semibold">{name}</div>
-                <div className="text-sm text-zinc-600">{role}</div>
-                {phone && (
-                    <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
-                        <a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 text-zinc-800 hover:underline">{phone}</a>
-                        <a href={waUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-600 text-white hover:bg-red-700 transition">WhatsApp</a>
-                    </div>
-                )}
-            </div>
+const TeamCard = ({ name, role, email }) => (
+    <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-6">
+        <div className="space-y-1">
+            <div className="font-semibold">{name}</div>
+            <div className="text-sm text-zinc-600">{role}</div>
+            {email && (
+                <a
+                    href={`mailto:${email}`}
+                    className="inline-flex items-center gap-2 mt-2 text-sm text-red-600 hover:underline"
+                >
+                    {email}
+                </a>
+            )}
         </div>
+    </div>
     )
 }
 
 function Contact() {
     return (
         <main className="py-12">
-            <Container>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl font-bold tracking-tight">Contact Sales</h1>
+
                 <div className="grid lg:grid-cols-7 gap-10 mt-6">
                     <div className="lg:col-span-3">
                         <div className="grid gap-3 text-sm">
-                            <InfoRow label="Phone" value={<><a className="hover:underline" href="tel:+27637333919">063 733 3919</a> · <a className="hover:underline" href="tel:+27629417835">062 941 7835</a></>} />
-                            <InfoRow label="Email" value={<a className="hover:underline" href="mailto:g9energysupply@gmail.com">g9energysupply@gmail.com</a>} />
+                            <InfoRow
+                                label="Phone"
+                                value={
+                                    <>
+                                        <a className="hover:underline" href="tel:+27120040569">012 004 0569</a> (Landline) ·{' '}
+                                        <a className="hover:underline" href="tel:+27763088254">076 308 8254</a> (Sales)
+                                    </>
+                                }
+                            />
+                            <InfoRow
+                                label="Email"
+                                value={
+                                    <>
+                                        <a className="hover:underline" href="mailto:g9energysupply@gmail.com">
+                                            g9energysupply@gmail.com
+                                        </a>
+                                        <span className="mx-1">·</span>
+                                        <a className="hover:underline" href="mailto:orders@enerygysupply.co.za">
+                                            orders@enerygysupply.co.za
+                                        </a>
+                                    </>
+                                }
+                            />
                             <InfoRow label="Location" value="Midrand, Johannesburg, South Africa" />
                         </div>
                         <div className="mt-4 text-xs text-zinc-500">We reply within one business day.</div>
                     </div>
+
                     <div className="lg:col-span-4 rounded-2xl border border-zinc-200 bg-white shadow-sm p-6">
                         <h3 className="text-lg font-semibold">Request a Quote</h3>
-                        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="mt-4 grid gap-4" action="/thank-you.html">
+                        <form
+                            name="contact"
+                            method="POST"
+                            data-netlify="true"
+                            data-netlify-honeypot="bot-field"
+                            className="mt-4 grid gap-4"
+                            action="/thank-you.html"
+                        >
                             <input type="hidden" name="form-name" value="contact" />
-                            <p className="hidden" aria-hidden="true"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+                            <p className="hidden" aria-hidden="true">
+                                <label>Don’t fill this out: <input name="bot-field" /></label>
+                            </p>
                             <div className="grid sm:grid-cols-2 gap-4">
                                 <input name="name" placeholder="Full name" className="px-3 py-2 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-red-600" required />
                                 <input name="email" type="email" placeholder="Email" className="px-3 py-2 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-red-600" required />
@@ -309,7 +372,7 @@ function Contact() {
                         </form>
                     </div>
                 </div>
-            </Container>
+            </div>
         </main>
     )
 }
