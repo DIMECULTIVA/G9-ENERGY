@@ -275,8 +275,8 @@ function Team() {
                         <div className="text-sm text-zinc-600">Sales</div>
                         <div className="mt-2 flex flex-col gap-1 text-sm">
                             {/* NOTE: you typed enerygysupply.co.za — if that’s a typo, change to energysupply */}
-                            <a href="mailto:orders@enerygysupply.co.za" className="text-red-600 hover:underline">
-                                orders@enerygysupply.co.za
+                            <a href="mailto:orders@energysupply.co.za" className="text-red-600 hover:underline">
+                                orders@energysupply.co.za
                             </a>
                             <a href="tel:+27763088254" className="hover:underline">076 308 8254</a>
                         </div>
@@ -303,7 +303,7 @@ const TeamCard = ({ name, role, email }) => (
         </div>
     </div>
     )
-}
+
 
 function Contact() {
     return (
@@ -331,7 +331,7 @@ function Contact() {
                                             g9energysupply@gmail.com
                                         </a>
                                         <span className="mx-1">·</span>
-                                        <a className="hover:underline" href="mailto:orders@enerygysupply.co.za">
+                                        <a className="hover:underline" href="mailto:orders@energysupply.co.za">
                                             orders@enerygysupply.co.za
                                         </a>
                                     </>
